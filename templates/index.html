@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oracle Music Tracker</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Oracle Music Tracker</h1>
+        <p>Track playlist work from the Oracle to the Pi and back.</p>
+      </header>
+
+      <section class="panel">
+        <h2>Create a playlist</h2>
+        <form id="playlist-form">
+          <div class="field">
+            <label for="playlist-name">Playlist name</label>
+            <input id="playlist-name" name="playlist-name" type="text" placeholder="e.g. Night Drive" required />
+          </div>
+
+          <div class="field">
+            <label for="song-list">Songs (one URL per line or comma separated)</label>
+            <textarea id="song-list" name="song-list" rows="8" placeholder="https://youtu.be/example1&#10;https://youtu.be/example2"></textarea>
+          </div>
+
+          <button type="submit">Queue playlist</button>
+        </form>
+      </section>
+
+      <section class="stats" id="stats">
+        <div class="stat-box">
+          <span class="label">Playlists</span>
+          <strong id="playlist-count">0</strong>
+        </div>
+        <div class="stat-box">
+          <span class="label">Queued</span>
+          <strong id="queued-count">0</strong>
+        </div>
+        <div class="stat-box">
+          <span class="label">Downloaded</span>
+          <strong id="downloaded-count">0</strong>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Playlist status</h2>
+        <div id="playlist-container" class="playlist-container"></div>
+      </section>
+    </div>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>
